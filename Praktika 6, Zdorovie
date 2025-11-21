@@ -1,0 +1,35 @@
+NORMAL_TEMP_MIN = 36.0
+NORMAL_TEMP_MAX = 37.0
+NORMAL_PRESSURE_MIN = 110
+NORMAL_PRESSURE_MAX = 130
+NORMAL_PULSE_MIN = 60
+NORMAL_PULSE_MAX = 100
+
+print("Диагностика состояния здоровья")
+print("=" * 30)
+
+try:
+    temperature = float(input("Введите температуру:"))
+    pressure = int(input("Введите верхнее давление: "))
+    pulse = int(input("Введите пульс: "))
+
+    if temperature < 35 or temperature > 38:
+        status = "Требуется врач"
+    elif pressure < 105 or pressure > 140:
+        status = "Требуется врач"
+    elif pulse < 55 or pulse > 110:
+        status = "Требуется врач"
+
+    elif (NORMAL_TEMP_MIN <= temperature <= NORMAL_TEMP_MAX and NORMAL_PRESSURE_MIN <= pressure <= NORMAL_PRESSURE_MAX and NORMAL_PULSE_MIN <= pulse <= NORMAL_PULSE_MAX ):
+        status = "Нормальное состояние"
+
+    else:
+        status = "Лёгкое недомогание"
+
+    print(f"Температура: {temperature}")
+    print(f"Давление: {pressure}")
+    print(f"Пульс: {pulse}")
+    print(f"Диагноз: {status}")
+
+except ValueError:
+    print("Ошибка! Вводите только числа.")
