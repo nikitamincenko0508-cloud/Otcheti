@@ -1,0 +1,25 @@
+MIN_POCKET = 0
+MAX_POCKET = 36
+GREEN_POCKET = 0
+
+try:
+    pocket_number = int(input("Введите номер кармана"))
+except ValueError:
+    print("Ошибка ввода")
+    exit()
+
+if not (MIN_POCKET <= pocket_number <= MAX_POCKET):
+    PRINT("Ошибка ввода")
+else:
+    if pocket_number == GREEN_POCKET:
+        color = "зеленый"
+    elif 1 <= pocket_number <= 10:
+        color = "красный" if pocket_number % 2 != 0 else "чёрный"
+    elif 11 <= pocket_number <= 18:
+        color = "чёрный" if pocket_number % 2 != 0 else "красный"
+    elif 19 <= pocket_number <= 28:
+        color = "красный" if pocket_number % 2 != 0 else "чёрный"
+    else:
+        color = "чёрный" if pocket_number % 2 != 0 else "красный"
+
+    print(color)
