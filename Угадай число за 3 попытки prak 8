@@ -1,0 +1,19 @@
+import random
+secret = random.randint(1,10)
+guessed = False
+
+for attempt in range(1,4):
+    guess = int(input())
+    if guess == secret:
+        print("Угадали")
+        guessed = True
+        break
+    else:
+        print("Неверно", end="")
+        if guess < secret:
+            print("(Нужно больше)")
+        else:
+            print("(Нужно меньше)")
+
+if not guessed:
+    print(f"Загаданное число было: {secret}")
