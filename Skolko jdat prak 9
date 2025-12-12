@@ -1,0 +1,37 @@
+queue = []
+count_between = 0
+found_alexandra = False
+found_levon = False
+name = ""
+
+print("Введите имена участников очереди. Для завершения введите пустую строку.")
+
+while True:
+    name = input()
+    if name == "":
+        break
+    queue.append(name)
+
+if not queue:
+    print(0)
+else:
+    index_alexandra = None
+    index_levon = None
+
+    i = 0
+    while i < len(queue):
+        if queue[i] == "Александра":
+            index_alexandra = i
+        elif queue[i] == "Левон":
+            index_levon = i
+        if index_alexandra is not None and index_levon is not None:
+            start = index_alexandra
+            end = index_levon
+            if start < end:
+                count_between = end - start - 1
+            else:
+                count_between = start - end - 1
+            break
+        i += 1
+
+    print(count_between)
