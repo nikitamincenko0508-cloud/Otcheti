@@ -1,0 +1,16 @@
+price = int(input("Введите стоимость услуги: "))
+
+coins = [25, 10, 5, 1]
+total_coins = 0
+remaining = price
+
+while remaining > 0:
+    for coin in coins:
+        if coin <= remaining:
+            remaining -= coin
+            total_coins += 1
+            break
+    else:
+        break
+
+print(f"Минимальное количество чеканных монет: {total_coins}")
