@@ -1,0 +1,15 @@
+product = 1
+
+while True:
+    try:
+        number = float(input("Введите число: "))
+    except ValueError:
+        print("Введите число")
+        continue
+
+    if number < 0:
+        break
+
+    product *= number
+
+print(f"Произведение положительных чисел: {product}")
