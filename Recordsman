@@ -1,0 +1,19 @@
+max_number = None
+
+while True:
+    try:
+        num = int(input("Введите натуральное число (или 0 для завершения): "))
+        if num < 0:
+            print("Введите натуральное число или 0.")
+            continue
+        if num == 0:
+            break
+        if (max_number is None) or (num > max_number):
+            max_number = num
+    except ValueError:
+        print("Некорректный ввод. Попробуйте еще раз.")
+
+if max_number is None:
+    print("Вы не ввели ни одного числа.")
+else:
+    print("Самое большое число:", max_number)
