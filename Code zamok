@@ -1,0 +1,44 @@
+correct_code = 4590
+
+while True:
+    try:
+        input_value = input("Введите пин-код: ")
+        number = 0
+        i = 0
+        is_number = True
+        for ch in input_value:
+            if ch == '0':
+                digit = 0
+            elif ch == '1':
+                digit = 1
+            elif ch == '2':
+                digit = 2
+            elif ch == '3':
+                digit = 3
+            elif ch == '4':
+                digit = 4
+            elif ch == '5':
+                digit = 5
+            elif ch == '6':
+                digit = 6
+            elif ch == '7':
+                digit = 7
+            elif ch == '8':
+                digit = 8
+            elif ch == '9':
+                digit = 9
+            else:
+                is_number = False
+                break
+            number = number * 10 + digit
+
+        if not is_number:
+            print("Ошибка. Попробуйте еще раз")
+            continue
+        if number == correct_code:
+            print("Доступ разрешен")
+            break
+        else:
+            print("Ошибка. Попробуйте еще раз")
+    except:
+        print("Ошибка. Попробуйте еще раз")
