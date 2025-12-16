@@ -1,0 +1,129 @@
+while True:
+    # Запрос первого числа
+    try:
+        a_input = input("Введите первое число: ")
+        a = 0
+        is_number = True
+        for ch in a_input:
+            if ch == '0':
+                digit = 0
+            elif ch == '1':
+                digit = 1
+            elif ch == '2':
+                digit = 2
+            elif ch == '3':
+                digit = 3
+            elif ch == '4':
+                digit = 4
+            elif ch == '5':
+                digit = 5
+            elif ch == '6':
+                digit = 6
+            elif ch == '7':
+                digit = 7
+            elif ch == '8':
+                digit = 8
+            elif ch == '9':
+                digit = 9
+            else:
+                is_number = False
+                break
+            a = a * 10 + digit
+
+        if not is_number:
+            print("Некорректный ввод. Попробуйте еще раз.")
+            continue
+    except:
+        print("Некорректный ввод. Попробуйте еще раз.")
+        continue
+
+    # Запрос второго числа
+    while True:
+        try:
+            b_input = input("Введите второе число: ")
+            b = 0
+            is_number_b = True
+            for ch in b_input:
+                if ch == '0':
+                    digit = 0
+                elif ch == '1':
+                    digit = 1
+                elif ch == '2':
+                    digit = 2
+                elif ch == '3':
+                    digit = 3
+                elif ch == '4':
+                    digit = 4
+                elif ch == '5':
+                    digit = 5
+                elif ch == '6':
+                    digit = 6
+                elif ch == '7':
+                    digit = 7
+                elif ch == '8':
+                    digit = 8
+                elif ch == '9':
+                    digit = 9
+                else:
+                    is_number_b = False
+                    break
+                b = b * 10 + digit
+
+            if not is_number_b:
+                print("Некорректный ввод. Попробуйте еще раз.")
+                continue
+
+            if b <= a:
+                print("Второе число должно быть больше первого. Попробуйте еще раз.")
+                continue
+            break
+        except:
+            print("Некорректный ввод. Попробуйте еще раз.")
+            continue
+
+    # Запрос третьего числа
+    while True:
+        try:
+            c_input = input("Введите третье число: ")
+            c = 0
+            is_number_c = True
+            for ch in c_input:
+                if ch == '0':
+                    digit = 0
+                elif ch == '1':
+                    digit = 1
+                elif ch == '2':
+                    digit = 2
+                elif ch == '3':
+                    digit = 3
+                elif ch == '4':
+                    digit = 4
+                elif ch == '5':
+                    digit = 5
+                elif ch == '6':
+                    digit = 6
+                elif ch == '7':
+                    digit = 7
+                elif ch == '8':
+                    digit = 8
+                elif ch == '9':
+                    digit = 9
+                else:
+                    is_number_c = False
+                    break
+                c = c * 10 + digit
+
+            if not is_number_c:
+                print("Некорректный ввод. Попробуйте еще раз.")
+                continue
+
+            if c <= b:
+                print("Третье число должно быть больше второго. Попробуйте еще раз.")
+                continue
+            break
+        except:
+            print("Некорректный ввод. Попробуйте еще раз.")
+            continue
+
+    print("Последовательность принята")
+    break
