@@ -1,0 +1,15 @@
+max_n = 365 // 28
+max_k = 365 // 30
+max_m = 365 // 31
+
+solutions = []
+
+for n in range(1, max_n + 1):
+    for k in range(1, max_k + 1):
+        for m in range(1, max_m + 1):
+            if 28 * n + 30 * k + 31 * m == 365:
+                solutions.append((n, k, m))
+
+print("Все решения (n, k, m), удовлетворяющие уравнению 28n + 30k + 31m = 365:")
+for solution in solutions:
+    print(solution)
