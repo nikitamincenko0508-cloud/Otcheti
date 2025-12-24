@@ -1,0 +1,11 @@
+solutions = []
+
+for x in range(0, 11):  # 0 до 10
+    for y in range(0, 21):  # 0 до 20
+        z = 200 - 20 * x - 10 * y
+        if z >= 0:
+            solutions.append((x, y, z))
+
+print("Все возможные комбинации (быки, коровы, телята):")
+for combo in solutions:
+    print(f"Быки: {combo[0]}, Коровы: {combo[1]}, Телят: {combo[2]}")
