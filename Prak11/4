@@ -1,0 +1,49 @@
+number = input()
+
+count_threes = 0
+last_digit = number[-1]
+count_last_digit = 0
+count_even = 0
+sum_greater_five = 0
+product_greater_seven = 1
+count_zero_five = 0
+
+digits_greater_seven = []
+
+for digit_char in number:
+    digit = int(digit_char)
+
+    if digit_char == '3':
+        count_threes += 1
+
+    if digit_char == last_digit:
+        count_last_digit += 1
+
+    if digit % 2 == 0:
+        count_even += 1
+
+    if digit > 5:
+        sum_greater_five += digit
+
+    if digit > 7:
+        digits_greater_seven.append(digit)
+
+    if digit_char == '0' or digit_char == '5':
+        count_zero_five += 1
+
+if len(digits_greater_seven) == 0:
+    product_greater_seven = 1
+elif len(digits_greater_seven) == 1:
+    product_greater_seven = digits_greater_seven[0]
+else:
+    prod = 1
+    for d in digits_greater_seven:
+        prod *= d
+    product_greater_seven = prod
+
+print(count_threes)
+print(count_last_digit)
+print(count_even)
+print(sum_greater_five)
+print(product_greater_seven)
+print(count_zero_five)
