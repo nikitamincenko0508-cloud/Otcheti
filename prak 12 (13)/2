@@ -1,0 +1,9 @@
+n = int(input())
+
+chars_list = []
+
+for _ in range(n):
+    line = input()
+    chars_list.extend([char for char in line])
+
+print(chars_list)
