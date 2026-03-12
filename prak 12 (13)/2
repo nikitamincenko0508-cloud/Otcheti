@@ -1,9 +1,9 @@
-n = int(input())
+n = int(input("Введите число строк: "))
 
-chars_list = []
+all_characters = []
 
 for _ in range(n):
-    line = input()
-    chars_list.extend([char for char in line])
+    line = input("Введите строку: ")
+    all_characters.extend([char for char in line])
 
-print(chars_list)
+print(all_characters)
