@@ -1,0 +1,21 @@
+ip_str = input("Введите IP-адрес: ")
+
+octets = ip_str.split('.')
+
+if len(octets) == 4:
+    is_correct_ip = True
+    for octet in octets:
+        if not octet.isdigit():
+            is_correct_ip = False
+            break
+        num = int(octet)
+        if num < 0 or num > 255:
+            is_correct_ip = False
+            break
+
+    if is_correct_ip:
+        print("ДА")
+    else:
+        print("НЕТ")
+else:
+    print("НЕТ")
