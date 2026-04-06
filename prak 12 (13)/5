@@ -1,0 +1,15 @@
+numbers_str = input("Введите числа через пробел: ")
+
+numbers_list = list(map(int, numbers_str.split()))
+
+counts = {}
+
+for num in numbers_list:
+    counts[num] = counts.get(num, 0) + 1
+
+total_pairs = 0
+for count in counts.values():
+    if count > 1:
+        total_pairs += count * (count - 1) // 2
+
+print(total_pairs)
