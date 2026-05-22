@@ -1,0 +1,23 @@
+import random
+
+rows = 5
+cols = 4
+original_list = []
+
+for _ in range(rows):
+    row = [random.randint(-20, 20) for _ in range(cols)]
+    original_list.append(row)
+
+filtered_list = []
+
+for i, row in enumerate(original_list):
+    positive_row = [num for num in row if num > 0]
+    filtered_list.append(positive_row)
+
+print('Исходный вложенный список:')
+for i, row in enumerate(original_list):
+    print(f"Строка {i}: {row}")
+
+print('\nОтфильтрованный вложенный список (только положительные числа):')
+for i, row in enumerate(filtered_list):
+    print(f"Строка {i}: {row}")
