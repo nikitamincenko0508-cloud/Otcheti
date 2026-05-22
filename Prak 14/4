@@ -1,0 +1,30 @@
+import random
+
+rows = 5
+cols = 4
+nested_list = []
+
+for _ in range(rows):
+    row = [random.randint(0, 50) for _ in range(cols)]
+    nested_list.append(row)
+
+
+print("Созданный вложенный список:")
+for i, row in enumerate(nested_list):
+    print(f"Индекс строки {i}: {row}")
+
+search_value = int(input("\nВведите число для поиска: "))
+
+positions = []
+
+for i in range(rows):
+    for j in range(cols):
+        if nested_list[i][j] == search_value:
+            positions.append((i, j))
+
+if positions:
+    print(f"\nЗначение {search_value} встречается в следующих позициях:")
+    for pos in positions:
+        print(f"Строка: {pos[0]}, позиция в строке: {pos[1]}")
+else:
+    print(f"\nЗначение {search_value} не найдено в списке.")
