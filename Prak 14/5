@@ -1,0 +1,12 @@
+N = int(input("Введите максимально возможное число предметов (N): "))
+
+values_input = input("Введите ценности предметов через пробел: ")
+values_list = list(map(int, values_input.split()))
+
+values_list.sort(reverse=True)
+
+items_to_take = values_list[:N]
+
+max_value_sum = sum(items_to_take)
+
+print(f"Максимально возможная сумма ценностей: {max_value_sum}")
