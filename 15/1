@@ -25,7 +25,6 @@ if pos_in != -1 and pos_out != -1:
     dist = abs(row_in - row_out) + abs(col_in - col_out)
     print(f"Манхэттенское расстояние: {dist}")
 
-# Задание 1.5 — подсчёт монет "м"
 coins = s.count('м')
 if coins == 0:
     print("Монет нет")
