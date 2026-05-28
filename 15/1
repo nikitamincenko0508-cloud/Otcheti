@@ -1,0 +1,36 @@
+s = input().strip()
+
+if len(s) != 25:
+    raise ValueError("Ожидается ровно 25 символов.")
+
+# вывод лабиринта
+for i in range(0, 25, 5):
+    print(s[i:i+5])
+
+pos_in = s.find('н')
+pos_out = s.find('ф')
+if pos_in != -1:
+    row_in, col_in = pos_in // 5, pos_in % 5
+    print(f"Вход: строка {row_in}, столбец {col_in}")
+else:
+    print("Входа нет")
+
+if pos_out != -1:
+    row_out, col_out = pos_out // 5, pos_out % 5
+    print(f"Выход: строка {row_out}, столбец {col_out}")
+else:
+    print("Выхода нет")
+
+if pos_in != -1 and pos_out != -1:
+    dist = abs(row_in - row_out) + abs(col_in - col_out)
+    print(f"Манхэттенское расстояние: {dist}")
+
+# Задание 1.5 — подсчёт монет "м"
+coins = s.count('м')
+if coins == 0:
+    print("Монет нет")
+else:
+    if coins <= 5:
+        print('🟡' * coins)
+    else:
+        print(f"🟡x{coins}")
