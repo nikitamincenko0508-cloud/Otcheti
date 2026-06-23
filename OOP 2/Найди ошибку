@@ -5,7 +5,6 @@ class Monster:
     def introduce(self):
         print(f"Я {self.name}, и я хочу кушать!")
 
-# Создаем объект
 m = Monster("Упырь")
 # Вызов метода
 m.introduce()
