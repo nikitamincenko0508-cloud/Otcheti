@@ -9,8 +9,6 @@ class Monster:
         print(f"❤️: {self.hp}")
         print(f"⚔️: {self.dmg}")
 
-# Создаем объект класса Monster
 monster = Monster("Горгулья", 120, 18)
 
-# Вызываем метод show_info()
 monster.show_info()
