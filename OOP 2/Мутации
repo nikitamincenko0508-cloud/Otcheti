@@ -14,9 +14,7 @@ class Monster:
         print(f"{self.name} отдыхает в склепе! Здоровье восстановлено!")
         print(f"❤️: {self.hp}")
 
-# Создаем объект
 monster = Monster("Люкан", 15, 90)
 
-# Вызов методов
 monster.mutate()
 monster.rest()
