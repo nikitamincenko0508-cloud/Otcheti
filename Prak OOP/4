@@ -1,0 +1,57 @@
+class Weapon:
+    def __init__(self, name, damage):
+        self.name = name
+        self.damage = damage
+
+    def use(self, monster):
+        print(f"{self.name} наносит {self.damage} урона монстру!")
+        monster.take_damage(self.damage)
+
+    def __str__(self):
+        return f"{self.name} (урон: {self.damage})"
+
+class Monster:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp < 0:
+            self.hp = 0
+        print(f"{self.name} получил урон и now имеет {self.hp} HP.")
+
+class Hunter:
+    def __init__(self, name):
+        self.__name = name
+        self.__hp = 100
+        self.__weapons = []
+
+    def get_name(self):
+        return self.__name
+
+    def get_hp(self):
+        return self.__hp
+
+    def set_hp(self, value):
+        if value < 0:
+            self.__hp = 0
+        else:
+            self.__hp = value
+
+    def add_weapon(self, weapon):
+        self.__weapons.append(weapon)
+
+    def show_inventory(self):
+        print("Инвентарь охотника:")
+        for idx, weapon in enumerate(self.__weapons):
+            print(f"{idx + 1}. {weapon}")
+
+    def attack(self, weapon_index, monster):
+        if 0 <= weapon_index < len(self.__weapons):
+            self.__weapons[weapon_index].use(monster)
+        else:
+            print("Некорректный индекс оружия.")
+
+    def is_alive(self):
+        return self.__hp > 0
