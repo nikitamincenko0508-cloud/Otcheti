@@ -1,0 +1,125 @@
+import random
+
+class Weapon:
+    def __init__(self, name, damage):
+        self.name = name
+        self.damage = damage
+
+    def use(self, monster):
+        print(f"{self.name} наносит {self.damage} урона {monster.name}!")
+        monster.take_damage(self.damage)
+
+    def __str__(self):
+        return f"{self.name} (урон: {self.damage})"
+
+class Monster:
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp < 0:
+            self.hp = 0
+
+    def attack(self, hunter):
+        damage = random.randint(10, 20)
+        print(f"{self.name} атакует и наносит {damage} урона!")
+        hunter.set_hp(hunter.get_hp() - damage)
+
+    def is_alive(self):
+        return self.hp > 0
+
+class Ghost(Monster):
+    def attack(self, hunter):
+        if random.random() < 0.2:
+            print(f"{self.name} уклоняется и не наносит урон!")
+        else:
+            super().attack(hunter)
+
+class Hunter:
+    def __init__(self, name):
+        self.__name = name
+        self.__hp = 100
+        self.__weapons = []
+
+    def get_name(self):
+        return self.__name
+
+    def get_hp(self):
+        return self.__hp
+
+    def set_hp(self, value):
+        self.__hp = max(0, value)
+
+    def add_weapon(self, weapon):
+        self.__weapons.append(weapon)
+
+    def show_inventory(self):
+        print("Инвентарь охотника:")
+        for idx, weapon in enumerate(self.__weapons):
+            print(f"{idx + 1}. {weapon}")
+
+    def attack(self, weapon_index, monster):
+        if 0 <= weapon_index < len(self.__weapons):
+            self.__weapons[weapon_index].use(monster)
+        else:
+            print("Некорректный индекс оружия.")
+
+    def is_alive(self):
+        return self.__hp > 0
+
+def run_game():
+    hunter = Hunter("Ван Хельсинг")
+    hunter.add_weapon(Weapon("Крест", 20))
+    hunter.add_weapon(Weapon("Светозар", 30))
+    hunter.add_weapon(Weapon("Святая вода", 40))
+    
+    monsters = [
+        Monster("Zombie", 30),
+        Monster("Vampire", 50),
+        Ghost("Ghost", 40),
+        Monster("Werewolf", 60)
+    ]
+
+    for monster in monsters:
+        print(f"\n=== Битва с {monster.name} ===")
+        while monster.is_alive() and hunter.is_alive():
+            print(f"\n{hunter.get_name()} атакует {monster.name}...")
+            hunter.show_inventory()
+            print(f"{hunter.get_name()} использует {hunter._Hunter__weapons[0].name}...")
+            hunter.attack(0, monster)
+
+            print(f"Статус {hunter.get_name()}: {hunter.get_hp()} HP\n")
+            if not monster.is_alive():
+                print(f"{monster.name} побежден!\n")
+                break
+
+            monster.attack(hunter)
+            print(f"{hunter.get_name()} теперь имеет {hunter.get_hp()} HP\n")
+            if not hunter.is_alive():
+                print(f"{hunter.get_name()} пал в бою!")
+                print("Поражение!")
+                return
+
+    print("Все монстры побеждены! Победа!")
+
+run_game()
+
+
+sword = Weapon("Меч", 25)
+bow = Weapon("Лук", 15)
+
+goblin = Monster("Гоблин", 50)
+
+hunter = Hunter("Артур")
+
+hunter.add_weapon(sword)
+hunter.add_weapon(bow)
+
+hunter.show_inventory()
+
+hunter.attack(0, goblin)
+hunter.attack(1, goblin)
+
+print(f"Здоровье монстра: {goblin.hp}")
